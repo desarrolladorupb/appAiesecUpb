@@ -60,6 +60,9 @@ html {
     background: var(--color_black);
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login__img {
@@ -328,7 +331,7 @@ div.standars__row>[class*='col-']>p {
 }
 
 @media screen and (max-width:420px) {
-    .login {
+    .login>.login__content {
         height: 100vh;
     }
     .detall__item {
