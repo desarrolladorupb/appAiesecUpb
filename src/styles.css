@@ -31,10 +31,40 @@ html {
     --mainwidthmenu: 270px;
 }
 
+
+/*estilos generales de la plicacion*/
+
+.detall,
+.list {
+    padding: 1.5em 2em;
+}
+
+.title {
+    font-family: var(--built_titling);
+    font-size: 3em;
+    text-align: center;
+}
+
+
+/*******************************/
+
+
+/*estilos del login*/
+
+.login {
+    max-width: 420px;
+    width: 100%;
+}
+
 .login__Back {
     background: var(--color_black);
     width: 100vw;
     height: 100vh;
+}
+
+.login__img {
+    width: 40%;
+    margin: 1.5em auto;
 }
 
 .login__content {
@@ -63,6 +93,12 @@ html {
     color: var(--color_black);
 }
 
+
+/*******************************/
+
+
+/*estilos principales de los contenedores del aside y contenido*/
+
 .app__main {
     width: 100%;
     min-height: 100vh;
@@ -76,6 +112,7 @@ html {
     bottom: 0;
     width: var(--mainwidthmenu);
     background: var(--color_black);
+    z-index: 100;
 }
 
 .app__component {
@@ -83,6 +120,12 @@ html {
     min-height: 100vh;
     margin-left: var(--mainwidthmenu);
 }
+
+
+/*******************************/
+
+
+/*estilos del menu*/
 
 .menu {
     width: var(--mainwidthmenu);
@@ -160,11 +203,11 @@ html {
     bottom: 0;
 }
 
-.title {
-    font-family: var(--built_titling);
-    font-size: 3em;
-    text-align: center;
-}
+
+/*******************************/
+
+
+/*estilos de la lista de estandares*/
 
 .detall__contenc {
     display: flex;
@@ -186,7 +229,110 @@ html {
     text-align: center;
 }
 
-.detall,
-.list {
-    padding: 1.5em;
+
+/*estilos de los radiobutton*/
+
+div.standars__row>[class*='col-']>p {
+    margin-bottom: 0;
+}
+
+.standars__row {
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    padding: .5em;
+}
+
+.radio__yes,
+.radio__no {
+    display: none;
+}
+
+.label__yes,
+.label__no {
+    margin-bottom: 0;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: thin solid var(--color_black);
+    position: relative;
+    cursor: pointer;
+}
+
+.label__yes::before,
+.label__yes::after,
+.label__no::before,
+.label__no::after {
+    content: '';
+    display: block;
+    transition: all .3s ease;
+}
+
+.label__yes::before {
+    transform: rotate(45deg);
+}
+
+.label__yes::after {
+    transform: rotate(-50deg);
+}
+
+.radio__no:checked+.label__no:before,
+.radio__no:checked+.label__no::after {
+    width: 100%;
+    height: 2px;
+    background: var(--color_red);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 8px;
+    left: 0;
+}
+
+.radio__no:checked+.label__no::after {
+    transform: rotate(-45deg);
+}
+
+.radio__yes:checked+.label__yes:before,
+.radio__yes:checked+.label__yes::after {
+    width: 39%;
+    height: 2px;
+    background: #009688;
+    position: absolute;
+    top: 13px;
+    left: 0px;
+}
+
+.radio__yes:checked+.label__yes::after {
+    width: 100%;
+    top: 8px;
+    left: 2px;
+}
+
+
+/*******************************/
+
+@media screen and (max-width:992px) {
+    .app__menu {
+        left: -270px;
+    }
+    .app__component {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .detall__item {
+        flex-basis: 32%;
+        margin-bottom: 1em;
+    }
+}
+
+@media screen and (max-width:420px) {
+    .login {
+        height: 100vh;
+    }
+    .detall__item {
+        flex-basis: 47%;
+        margin-bottom: 1em;
+    }
 }
