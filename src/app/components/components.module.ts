@@ -9,6 +9,6 @@ import { MenuComponent } from './menu/menu.component';
     CommonModule,
     ComponentsRoutingModule
   ],
-  declarations: [ComponentsComponent,MenuComponent]
+  declarations: [ComponentsComponent,MenuComponent, ]
 })
 export class ComponentsModule { }

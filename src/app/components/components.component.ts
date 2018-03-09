@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild, Renderer2} from '@angular/core';
+declare var $:any;
+
 
 @Component({
   selector: 'app-components',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComponentsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _Renderer: Renderer2) { }
 
-  ngOnInit() {
+  ngOnInit() { 
+    $(function(){
+      $('#menu').click(function(){
+        if ($('#aside').hasClass('hidden')){
+          $('#aside').removeClass('hidden');
+        }else{
+          $('#aside').addClass('hidden');
+        }
+      })
+    })
   }
 
 }

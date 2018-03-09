@@ -45,6 +45,14 @@ html {
     text-align: center;
 }
 
+.hidden {
+    left: 0 !important;
+}
+
+.fa.fa-bars {
+    display: none;
+}
+
 
 /*******************************/
 
@@ -116,6 +124,7 @@ html {
     width: var(--mainwidthmenu);
     background: var(--color_black);
     z-index: 100;
+    transition: all .5s linear;
 }
 
 .app__component {
@@ -320,6 +329,12 @@ div.standars__row>[class*='col-']>p {
     .app__component {
         width: 100%;
         margin-left: 0;
+    }
+    .fa.fa-bars {
+        float: right;
+        display: block;
+        margin-top: 20px;
+        margin-right: 20px;
     }
 }
 
