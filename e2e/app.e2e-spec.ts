@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('app-aiesec-upb App', () => {
+describe('app-standards App', () => {
   let page: AppPage;
 
   beforeEach(() => {

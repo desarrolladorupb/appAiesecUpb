@@ -1,0 +1,54 @@
+<div class="menu">
+  <div class="menu__header">
+    <div class="menu__img">
+      <img src="../../../assets/img/Copy.png" />
+    </div>
+    <p class="menu__name">Desarrollador UPB</p>
+    <p class="menu__email">desarrollador.upb@aiesec.net</p>
+  </div>
+  <div class="menu__content">
+    <p class="contacts">Contacts of AIESEC</p>
+    <ul>
+      <li class="contacts__item">
+        <i class="fa fa-phone" aria-hidden="true"></i>Zackary Bartell
+        <span class="contacts__phone">1-573-872-3268</span>
+      </li>
+      <li class="contacts__item">
+        <i class="fa fa-phone" aria-hidden="true"></i>Pacocha Sawayn
+        <span class="contacts__phone">1-931-318-5683</span>
+      </li>
+    </ul>
+
+    <p class="contacts">Other contacts</p>
+    <ul>
+      <li class="contacts__item">
+        <i class="fa fa-phone" aria-hidden="true"></i>Zackary Bartell
+        <span class="contacts__phone">1-573-872-3268</span>
+      </li>
+      <li class="contacts__item">
+        <i class="fa fa-phone" aria-hidden="true"></i>Pacocha Sawayn
+        <span class="contacts__phone">1-931-318-5683</span>
+      </li>
+    </ul>
+
+    <ul class="not-click">
+      <li>
+        <a class="menu__item link" [routerLinkActive]="['active']" [routerLink]="['/app/list-standards']">
+          <i class="fa fa-list"></i>Standards</a>
+      </li>
+      <li>
+        <a class="menu__item link" [routerLinkActive]="['active']" [routerLink]="['/app/standards']">
+          <i class="fa fa-picture-o"></i>View Standars</a>
+      </li>
+      <li>
+        <a class="menu__item link" (click)="logout()">
+          <i class="fa fa-power-off"></i>logout</a>
+      </li>
+    </ul>
+
+  </div>
+  <div class="menu__footer">
+    © COPYRIGHT-UPB-MEDELLIN-2018
+  </div>
+
+</div>

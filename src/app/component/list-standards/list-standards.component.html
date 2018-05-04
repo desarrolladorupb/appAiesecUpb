@@ -1,0 +1,33 @@
+<div class="detall-secction p-3 p-md-4">
+  <h1 class="title">LIST OF STANDARDS</h1>
+
+  <div class="list-standars">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Standards</th>
+          <th class="text-center">Yes</th>
+          <th class="text-center">No</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let standard of Standards; let i = index">
+          <td>{{ standard.name }}</td>
+          <td class="text-center">
+            <div class="d-flex justify-content-center">
+              <input type="radio" [checked]="standard.option == 'true'" [disabled]="standard.option == 'true' || standard.option == 'false'" value="{{standard.id}}" class="radio true check-disabled" name="standards-{{ i }}" (click)="buttonTrue(standard)">
+            </div>
+          </td>
+          <td class="text-center">
+            <div class="d-flex justify-content-center">
+              <input type="radio" [checked]="standard.option == 'false'" [disabled]="standard.option == 'true' || standard.option == 'false'" value="{{ standard.id }}" class="radio false check-disabled" name="standards-{{ i }}" (click)="buttonFalse(standard)">
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <span *ngIf="Standards == '' ">cargando...</span>
+  </div>
+</div>
+

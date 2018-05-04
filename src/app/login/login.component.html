@@ -1,26 +1,22 @@
-<div class="container-fluid login__Back">
-    <div class="row d-flex justify-content-center">
-        <div class="login">
-            <div class="login__content pb-1">
-                <h1 class="login__title">Estandares de calidad</h1>
-                <div class="login__img">
-                    <img class="img-fluid" src="../../assets/img/Invertido-Negro.png" />
-                </div>
-                <div class="login__form px-5">
-                    <input class="form-control mb-3" type="email">
-                    <input class="form-control mb-3" type="password">
-                    <button class="btn btn-block mb-3 btn__red">Log in</button>
-                </div>
-                <a class="login__footer" href="https://auth.aiesec.org/users/password/new" target="_blank">
-                       Forgot password? 
-                </a>
-                <a class="menu__link" [routerLink]="['/app/listStandars']">
-                    <span><img src="../../../assets/img/marcar.png"></span> Standards
-                </a>
-                <a class="menu__link" [routerLink]="['/app']">
-                    <span><img src="../../../assets/img/marcar.png"></span> app
-                </a>
-            </div>
+<section class="login__seccion">
+  <div class="login">
+    <h1 class="login__title">Quality Standards</h1>
+    <div class="login__content">
+      <div class="login__img">
+        <img src="../../assets/img/Invertido-Negro.png" alt="">
+      </div>
+      <form class="login__form" [formGroup]="rForm" (ngSubmit)="startLogin(rForm.value)">
+        <input type="email" class="form-control" placeholder="email" formControlName='email' [class.is-invalid]="!rForm.controls['email'].valid && rForm.controls['email'].touched">
+        <div class="invalid-feedback" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
+          invalid email
         </div>
+        <input type="password" class="form-control mt-3" placeholder="password" formControlName='password' [class.is-invalid]="!rForm.controls['password'].valid && rForm.controls['password'].touched">
+        <div class="invalid-feedback" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">
+          the field is required
+        </div>
+        <button class='btn btn-block login__btn mt-3' [disabled]="!rForm.valid">Log In</button>
+      </form>
     </div>
-</div>
+    <a class="login__link" href="">Forgot password?</a>
+  </div>
+</section>

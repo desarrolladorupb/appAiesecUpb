@@ -1,0 +1,18 @@
+<div class="detall-secction  p-3 p-md-4">
+  <h1 class="title">STANDARDS</h1>
+  <div class="detal-standars" >
+
+    <span *ngIf="Standards == '' ">cargando...</span>
+
+    <div class="standars" *ngFor="let standard of Standards; let i = index">
+      <div 
+      [ngClass]="{'img-null':standard.option == null || standard.option == 'null', 
+      'img-false':standard.option == 'false'}"
+      >
+      </div>
+       
+      
+    </div>
+
+  </div>
+</div>
