@@ -12,9 +12,13 @@ export class AuthService {
   getToken(rform){
     let url = 'http://138.197.119.196/lcperformance/inicio_sesion_expa/?correo='+rform.email+'&password='+rform.password+'';
     return this._http.get(url).map(res => res.json());
-
   }
 
+  getCurrentPerson(token){
+    let url = 'https://gis-api.aiesec.org/v2/current_person.json?access_token='+token+'';
+    return this._http.get(url).map(res => res.json());
+  }
+ 
   getStandards(token){
     let url = 'http://138.197.119.196/lcperformance/get_opportunities/?token='+token+''; 
     return this._http.get(url).map(res => res.json());
@@ -31,10 +35,9 @@ export class AuthService {
   
   sessionValidate() {
     let validate = localStorage.getItem('user');
-    if (validate)
-      this.router.navigate(['/app/standards']);
-    else
+    if (!validate)
       this.router.navigate(['/']);
+    
   }
   
   

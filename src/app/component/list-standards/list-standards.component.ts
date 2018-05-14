@@ -26,7 +26,6 @@ export class ListStandardsComponent implements OnInit {
     let token = localStorage.getItem('token');
     this._AuthService.getStandards(token).subscribe(
       response =>{
-console.log(response);
         if (!response.result) {
           swal('', 'expired session','info');
           localStorage.removeItem('user');
@@ -36,18 +35,24 @@ console.log(response);
       if(response.data[0] !== undefined){
         for (let standard of response.data[0].standards){
           this.Standards.push({ 'id': standard.id, 'name': standard.name, 
-          'option': standard.option, 'id_oportunity': response.data[1].id,
+          'option': standard.option, 'id_oportunity': response.data[0].id,
             'order': standard.meta.order_id })
         }
-      } 
-      
+
         this.Standards = this.Standards.sort(function (a, b) {
           return (a.order - b.order)
         })
-        console.log(this.Standards);
+
+      } else {
+        swal('', 'unauthorized user', 'info');
+        localStorage.clear();
+        this._AuthService.sessionValidate();
+        return;
+      }
+      
       },
       error =>{
-      console.log(error);
+      console.log('problemas de conexion');
       }
     )
   }
@@ -55,7 +60,6 @@ console.log(response);
   buttonTrue(e){
       this._AuthService.putStandards(e,true).subscribe(
       response => {
-        console.log(response);
       },
       error =>{
         console.log(error);
@@ -66,7 +70,6 @@ console.log(response);
   buttonFalse(e) {
     this._AuthService.putStandards(e, false).subscribe(
       response => {
-        console.log(response);
       },
       error => {
         console.log(error);

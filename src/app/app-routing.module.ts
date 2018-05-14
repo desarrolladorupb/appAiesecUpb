@@ -7,6 +7,7 @@ const rourtes: Routes = [
   { path: '', loadChildren: './login/login.module#LoginModule' },
   { path: 'login', loadChildren: './login/login.module#LoginModule' },
   { path: 'app', loadChildren: './component/component.module#ComponentModule' },
+  { path: '**', redirectTo: 'app' }
 
 ] 
 @NgModule({

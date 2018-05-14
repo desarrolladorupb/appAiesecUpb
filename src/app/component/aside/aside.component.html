@@ -1,33 +1,43 @@
 <div class="menu">
   <div class="menu__header">
     <div class="menu__img">
-      <img src="../../../assets/img/Copy.png" />
+      <img src="{{ user_img }}" />
     </div>
-    <p class="menu__name">Desarrollador UPB</p>
-    <p class="menu__email">desarrollador.upb@aiesec.net</p>
+    <p class="menu__name">{{ user_name }}</p>
+    <p class="menu__email">{{ user_email }}</p>
   </div>
   <div class="menu__content">
     <p class="contacts">Contacts of AIESEC</p>
     <ul>
-      <li class="contacts__item">
+      <!--<li class="contacts__item">
         <i class="fa fa-phone" aria-hidden="true"></i>Zackary Bartell
         <span class="contacts__phone">1-573-872-3268</span>
       </li>
       <li class="contacts__item">
         <i class="fa fa-phone" aria-hidden="true"></i>Pacocha Sawayn
         <span class="contacts__phone">1-931-318-5683</span>
-      </li>
+      </li>-->
     </ul>
 
     <p class="contacts">Other contacts</p>
     <ul>
       <li class="contacts__item">
-        <i class="fa fa-phone" aria-hidden="true"></i>Zackary Bartell
-        <span class="contacts__phone">1-573-872-3268</span>
+        <a href="tel:112">
+          <i class="fa fa-phone" aria-hidden="true"></i>Medical emergencies
+          <span class="contacts__phone">112</span>
+        </a>
       </li>
       <li class="contacts__item">
-        <i class="fa fa-phone" aria-hidden="true"></i>Pacocha Sawayn
-        <span class="contacts__phone">1-931-318-5683</span>
+        <a href="tel:114">
+          <i class="fa fa-phone" aria-hidden="true"></i>Police
+          <span class="contacts__phone">114</span>
+        </a>
+      </li>
+      <li class="contacts__item">
+        <a href="tel:1234">
+          <i class="fa fa-phone" aria-hidden="true"></i>Emergencies
+          <span class="contacts__phone">1234</span>
+        </a>
       </li>
     </ul>
 

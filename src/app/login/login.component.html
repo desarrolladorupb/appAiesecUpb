@@ -3,7 +3,7 @@
     <h1 class="login__title">Quality Standards</h1>
     <div class="login__content">
       <div class="login__img">
-        <img src="../../assets/img/Invertido-Negro.png" alt="">
+        <img src="assets/img/Invertido-Negro.png" alt="">
       </div>
       <form class="login__form" [formGroup]="rForm" (ngSubmit)="startLogin(rForm.value)">
         <input type="email" class="form-control" placeholder="email" formControlName='email' [class.is-invalid]="!rForm.controls['email'].valid && rForm.controls['email'].touched">

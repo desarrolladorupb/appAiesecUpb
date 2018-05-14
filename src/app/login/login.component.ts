@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
   startLogin(rForm){
     this._AuthService.getToken(rForm).subscribe(
       response => {
-        console.log(response);
         this.authLogin(response, rForm);
       },
       error => {

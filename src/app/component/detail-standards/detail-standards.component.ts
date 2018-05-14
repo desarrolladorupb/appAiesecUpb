@@ -17,7 +17,7 @@ export class DetailStandardsComponent implements OnInit {
   constructor(public _StandaresService: StandaresService, public _AuthService: AuthService) { }
 
   ngOnInit() {
-    this.getStandars();
+   this.getStandars();
   }
 
   getStandars() {
@@ -26,7 +26,7 @@ export class DetailStandardsComponent implements OnInit {
       response => {
         if (!response.result){
           swal('', 'expired session', 'info');
-          localStorage.removeItem('user');
+          localStorage.clear();
           this._AuthService.sessionValidate();
           return;
         }
@@ -35,24 +35,25 @@ export class DetailStandardsComponent implements OnInit {
 
           for (let standard of response.data[0].standards) {
             this.Standards.push({ 'id': standard.id, 'name': standard.name, 
-            'option': standard.option, 'id_oportunity':response.data[1].id ,
+            'option': standard.option, 'id_oportunity':response.data[0].id ,
               'order': standard.meta.order_id})
           }
 
           this.Standards = this.Standards.sort(function (a, b) {
             return (a.order - b.order)
           })
-          console.log(this.Standards);
+        }else{
+          swal('', 'unauthorized user', 'info');
+          localStorage.clear();
+          this._AuthService.sessionValidate();
+          return;
         }
       },
       error => {
-        console.log(error);
+        console.log('problemas de conexion');
       }
     )
   }
 
-  saveStandar(e) {
-    console.log(e);
-  }
 
 }
